@@ -1,0 +1,36 @@
+@import 'src/styles/colors.scss';
+@import 'src/styles/layouts.scss';
+@import 'src/styles/variables.scss';
+
+.listView {
+  padding: 16px 80px;
+
+  @media (max-width: $mobile) {
+    padding: 12px;
+  }
+
+  &__button button {
+    display: flex;
+    align-items: center;
+    @media (max-width: $mobile) {
+      width: 100%;
+    }
+  }
+
+  .list {
+    margin-top: 24px;
+    &__header {
+      margin-bottom: 8px;
+      font-size: 0.9em;
+      display: grid;
+      grid-template-columns: minmax(88px, 1fr) 7fr 6fr 5fr;
+      #name {
+        grid-column-start: 1;
+        grid-column-end: span 2;
+      }
+      @media (max-width: $mobile) {
+        display: none;
+      }
+    }
+  }
+}

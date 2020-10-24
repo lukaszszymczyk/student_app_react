@@ -1,0 +1,7 @@
+.listItem {
+  background-color: white;
+  border-radius: 4px;
+  margin: 8px 0;
+  display: grid;
+  grid-template-columns: minmax(88px, 1fr) 7fr 6fr 5fr;
+}
