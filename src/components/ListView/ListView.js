@@ -18,6 +18,7 @@ class ListView extends React.Component {
   }
 
   render() {
+    const { openModalFn } = this.props;
     let students = this.state.students.map((student) => {
       return (
         <tr>
@@ -28,7 +29,7 @@ class ListView extends React.Component {
     return (
       <div className="list-view">
         <div className="list-view__header">
-          <button className="list-view__button btn btn-primary">
+          <button onClick={openModalFn} className="list-view__button btn btn-primary">
             <GoPlus />
             <span> Add student</span>
           </button>
