@@ -25,7 +25,7 @@ class Modal extends React.Component {
       <AppContext.Consumer>
         {(context) => (
           <div className="app-modal">
-            <button className="app-modal__button" onClick={context.closeModalFn}>
+            <button className="app-modal__button" onClick={context.closeModal}>
               <IconContext.Provider value={{ color: 'white' }}>
                 <GrFormClose />
               </IconContext.Provider>

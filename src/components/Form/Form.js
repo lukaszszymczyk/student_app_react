@@ -1,5 +1,7 @@
 import React from 'react';
 import './Form.scss';
+import { Button } from 'antd';
+import 'antd/dist/antd.css';
 
 class Form extends React.Component {
   constructor(props) {
@@ -63,9 +65,9 @@ class Form extends React.Component {
             <label for="university">University</label>
             <input className="input_item" name="university" type="text" id="university" onChange={this.handleInputChange}></input>
           </div>
-          <button type="submit" className="add-form__button btn btn-success">
+          <Button htmlType="submit" type="primary" className="add-form__button">
             <span>Save</span>
-          </button>
+          </Button>
         </form>
       </div>
     );

@@ -1,9 +1,10 @@
 import React from 'react';
-import './ListView.scss';
 import { GoPlus } from 'react-icons/go';
-import ListItem from '../ListItem/ListItem';
 import AppContext from '../../context';
-import App from '../../App';
+import ListItem from '../ListItem/ListItem';
+import './ListView.scss';
+import { Button } from 'antd';
+import 'antd/dist/antd.css';
 
 class ListView extends React.Component {
   componentDidMount() {}
@@ -14,10 +15,10 @@ class ListView extends React.Component {
         {(context) => (
           <div className="list-view">
             <div className="list-view__header">
-              <button onClick={context.openModal} className="list-view__button btn btn-primary">
+              <Button type="primary" className="list-view__button" onClick={context.openModal}>
                 <GoPlus />
-                <span> Add student</span>
-              </button>
+                <span className="button__label"> Add student</span>
+              </Button>
             </div>
             <table className="list">
               <thead>

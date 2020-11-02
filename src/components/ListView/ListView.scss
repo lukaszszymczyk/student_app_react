@@ -14,11 +14,17 @@
     justify-content: flex-end;
   }
 
-  &__button button {
-    display: flex;
+  &__button {
+    display: flex !important;
     align-items: center;
     @media (max-width: $mobile) {
       width: 100%;
+    }
+  }
+
+  button {
+    &__label {
+      margin: 0 6px;
     }
   }
 
