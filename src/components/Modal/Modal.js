@@ -3,13 +3,15 @@ import './Modal.scss';
 import axios from 'axios';
 import Form from './../Form/Form';
 import { GrFormClose } from 'react-icons/gr';
+import { IconContext } from 'react-icons/lib';
+import AppContext from '../../context';
 
 class Modal extends React.Component {
   state = {
     fieldTypes: [],
   };
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get('http://localhost:4000/dict/field-types').then((response) => {
       this.setState({
         fieldTypes: response.data,
@@ -18,15 +20,20 @@ class Modal extends React.Component {
   }
 
   render() {
-    const { closeModalFn, addStudent } = this.props;
     const { fieldTypes } = this.state;
     return (
-      <div className="app-modal">
-        <button className="app-modal__button" onClick={closeModalFn}>
-          <GrFormClose />
-        </button>
-        <Form fieldTypes={fieldTypes} addStudent={addStudent} />
-      </div>
+      <AppContext.Consumer>
+        {(context) => (
+          <div className="app-modal">
+            <button className="app-modal__button" onClick={context.closeModalFn}>
+              <IconContext.Provider value={{ color: 'white' }}>
+                <GrFormClose />
+              </IconContext.Provider>
+            </button>
+            <Form fieldTypes={fieldTypes} addStudent={context.addStudent} />
+          </div>
+        )}
+      </AppContext.Consumer>
     );
   }
 }
