@@ -1,12 +1,11 @@
 import React from 'react';
-import './Modal.scss';
+import './AppModal.scss';
+import Form from '../Form/Form';
 import axios from 'axios';
-import Form from './../Form/Form';
-import { GrFormClose } from 'react-icons/gr';
-import { IconContext } from 'react-icons/lib';
 import AppContext from '../../context';
+import { Modal } from 'antd';
 
-class Modal extends React.Component {
+class AppModal extends React.Component {
   state = {
     fieldTypes: [],
   };
@@ -24,18 +23,13 @@ class Modal extends React.Component {
     return (
       <AppContext.Consumer>
         {(context) => (
-          <div className="app-modal">
-            <button className="app-modal__button" onClick={context.closeModal}>
-              <IconContext.Provider value={{ color: 'white' }}>
-                <GrFormClose />
-              </IconContext.Provider>
-            </button>
+          <Modal visible={context.isModalOpen} onCancel={context.closeModal} bodyStyle={{ background: '#f5f6fb' }} footer={null}>
             <Form fieldTypes={fieldTypes} addStudent={context.addStudent} />
-          </div>
+          </Modal>
         )}
       </AppContext.Consumer>
     );
   }
 }
 
-export default Modal;
+export default AppModal;

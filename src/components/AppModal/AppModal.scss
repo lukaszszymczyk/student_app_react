@@ -1,0 +1,19 @@
+@import './../../styles/colors.scss';
+
+.app-modal {
+  background-color: $app-background;
+
+  &__close {
+    width: 30px;
+    height: 30px;
+    border: none;
+    position: absolute;
+    right: 40px;
+    top: 20px;
+    border-radius: 4px;
+
+    :hover {
+      cursor: pointer;
+    }
+  }
+}

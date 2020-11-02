@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.scss';
 import ListView from './components/ListView/ListView';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Modal from './components/Modal/Modal';
+import AppModal from './components/AppModal/AppModal';
 import axios from 'axios';
 import AppContext from './context';
 
@@ -56,7 +55,7 @@ class App extends React.Component {
       <AppContext.Provider value={contextElements}>
         <div className="student-app list-unstyled">
           <ListView />
-          {isModalOpen && <Modal />}
+          {isModalOpen && <AppModal />}
         </div>
       </AppContext.Provider>
     );
