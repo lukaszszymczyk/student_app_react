@@ -1,16 +1,17 @@
 import React from 'react';
-import './ListItem.scss';
+import styles from './ListItem.module.scss';
 
 class ListItem extends React.Component {
   render() {
+    const { full_name, semester, field_of_study, faculty, university } = this.props;
     return (
-      <div className="list-item">
-        <span>{this.props.student.full_name}</span>
-        <span>{this.props.student.semester}</span>
-        <span>{this.props.student.field_of_study}</span>
-        <span>{this.props.student.faculty}</span>
-        <span>{this.props.student.university}</span>
-      </div>
+      <tr className={styles.listItem}>
+        <td>{full_name}</td>
+        <td>{semester}</td>
+        <td>{field_of_study}</td>
+        <td>{faculty}</td>
+        <td>{university}</td>
+      </tr>
     );
   }
 }

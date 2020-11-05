@@ -2,7 +2,7 @@
 @import 'src/styles/layouts.scss';
 @import 'src/styles/variables.scss';
 
-.list-view {
+.listView {
   padding: 16px 80px;
 
   @media (max-width: $mobile) {
@@ -42,7 +42,7 @@
     }
   }
 
-  .header-item {
+  .headerItem {
     text-align: center;
   }
 }

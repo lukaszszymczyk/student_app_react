@@ -1,5 +1,5 @@
 import React from 'react';
-import './AppModal.scss';
+import styles from './AppModal.module.scss';
 import Form from '../Form/Form';
 import axios from 'axios';
 import AppContext from '../../context';
@@ -24,7 +24,7 @@ class AppModal extends React.Component {
       <AppContext.Consumer>
         {(context) => (
           <Modal visible={context.isModalOpen} onCancel={context.closeModal} bodyStyle={{ background: '#f5f6fb' }} footer={null}>
-            <Form fieldTypes={fieldTypes} addStudent={context.addStudent} />
+            <Form fieldTypes={fieldTypes} addStudentFn={context.addStudent} />
           </Modal>
         )}
       </AppContext.Consumer>
