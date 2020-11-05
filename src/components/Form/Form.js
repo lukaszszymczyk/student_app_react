@@ -1,7 +1,8 @@
-import React from 'react';
-import styles from './Form.module.scss';
 import { Button } from 'antd';
 import 'antd/dist/antd.css';
+import React from 'react';
+import styles from './Form.module.scss';
+import Input from './../Input/Input';
 
 class Form extends React.Component {
   constructor(props) {
@@ -37,34 +38,17 @@ class Form extends React.Component {
       <div className={styles.addForm}>
         <h2 className={styles.addForm__header}>Add student</h2>
         <form onSubmit={this.handleSubmit}>
-          <div className={styles.addForm__item}>
-            <label for="full_name">Full name</label>
-            <input className={styles.inputItem} name="full_name" type="text" id="full_name" onChange={this.handleInputChange}></input>
-          </div>
-          <div className={styles.addForm__item}>
-            <label for="semester">Semester</label>
-            <input className={styles.inputItem} name="semester" type="number" id="semester" onChange={this.handleInputChange}></input>
-          </div>
-          <div className={styles.addForm__item}>
-            <label for="field_of_study">Field of study</label>
-            <select className={styles.inputItem} name="field_of_study" id="field_of_study" onChange={this.handleInputChange}>
-              {this.props.fieldTypes.map((type) => {
-                return (
-                  <option key={type.name} name="fieldOfStudy" value={type.name}>
-                    {type.name}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-          <div className={styles.addForm__item}>
-            <label for="faculty">Faculty</label>
-            <input className={styles.inputItem} name="faculty" type="text" id="faculty" onChange={this.handleInputChange}></input>
-          </div>
-          <div className={styles.addForm__item}>
-            <label for="university">University</label>
-            <input className={styles.inputItem} name="university" type="text" id="university" onChange={this.handleInputChange}></input>
-          </div>
+          <Input tag="input" name="full_name" label="Full name" type="text" onChangeFn={this.handleInputChange} />
+          <Input tag="input" name="semester" label="Semester" type="number" onChangeFn={this.handleInputChange} />
+          <Input
+            tag="select"
+            name="field_of_study"
+            label="Field of study"
+            fieldTypes={this.props.fieldTypes}
+            onChangeFn={this.handleInputChange}
+          />
+          <Input tag="input" name="faculty" label="Faculty" type="text" onChangeFn={this.handleInputChange} />
+          <Input tag="input" name="university" label="University" type="text" onChangeFn={this.handleInputChange} />
           <Button htmlType="submit" type="primary" className={styles.addForm__button}>
             <span>Save</span>
           </Button>

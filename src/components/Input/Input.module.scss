@@ -1,0 +1,15 @@
+.addForm {
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+  }
+}
+
+.inputItem {
+  border: none;
+}

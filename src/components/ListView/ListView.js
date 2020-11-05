@@ -1,7 +1,7 @@
 import React from 'react';
 import { GoPlus } from 'react-icons/go';
 import AppContext from '../../context';
-import ListItem from '../ListItem/ListItem';
+import ListItem from './ListItem/ListItem';
 import styles from './ListView.module.scss';
 import { Button } from 'antd';
 import 'antd/dist/antd.css';
