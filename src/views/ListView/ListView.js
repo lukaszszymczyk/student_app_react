@@ -15,12 +15,25 @@ class ListView extends React.Component {
     this.getStudents();
   }
 
+  addStudent = (student) => {
+    axios.post('http://localhost:4000/students', student).then(() => {
+      this.getStudents();
+    });
+    this.closeModal();
+  };
+
   getStudents() {
     axios.get('http://localhost:4000/students').then((response) => {
       this.setState({
         students: response.data,
         isModalOpen: false,
       });
+    });
+  }
+
+  deleteStudent(id) {
+    axios.delete('http://localhost:4000/students/', { params: { ID: id } }).then((response) => {
+      this.getStudents();
     });
   }
 
@@ -36,18 +49,12 @@ class ListView extends React.Component {
     });
   };
 
-  addStudent = (student) => {
-    axios.post('http://localhost:4000/students', student).then(() => {
-      this.getStudents();
-    });
-    this.closeModal();
-  };
-
   render() {
     const { isModalOpen } = this.state;
     const contextElements = {
       ...this.state,
       addStudent: this.addStudent,
+      deleteStudent: this.deleteStudent,
       openModal: this.openModal,
       closeModal: this.closeModal,
     };

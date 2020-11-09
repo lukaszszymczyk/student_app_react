@@ -1,10 +1,10 @@
+import { Button } from 'antd';
+import 'antd/dist/antd.css';
 import React from 'react';
 import { GoPlus } from 'react-icons/go';
 import AppContext from '../../context';
-import ListItem from './ListItem/ListItem';
 import styles from './List.module.scss';
-import { Button } from 'antd';
-import 'antd/dist/antd.css';
+import ListItem from './ListItem/ListItem';
 
 class List extends React.Component {
   componentDidMount() {}
@@ -38,6 +38,7 @@ class List extends React.Component {
                   <th className={styles.headerItem} id="university">
                     University
                   </th>
+                  <th id="icons"></th>
                 </tr>
               </thead>
               <tbody>

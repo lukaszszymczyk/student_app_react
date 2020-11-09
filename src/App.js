@@ -1,7 +1,7 @@
 import React from 'react';
-import NotFoundView from './views/NotFoundView/NotFoundView';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import ListView from './views/ListView/ListView';
+import NotFoundView from './views/NotFoundView/NotFoundView';
 
 class App extends React.Component {
   render() {

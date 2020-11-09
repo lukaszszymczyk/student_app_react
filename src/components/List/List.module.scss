@@ -35,7 +35,7 @@
       margin-bottom: 8px;
       font-size: 0.9em;
       display: grid;
-      grid-template-columns: 2fr 1fr 2fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 2fr 1fr 1fr 0.5fr;
       @media (max-width: $mobile) {
         display: none;
       }

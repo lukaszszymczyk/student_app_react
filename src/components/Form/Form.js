@@ -1,8 +1,8 @@
 import { Button } from 'antd';
 import 'antd/dist/antd.css';
 import React from 'react';
-import styles from './Form.module.scss';
 import Input from './../Input/Input';
+import styles from './Form.module.scss';
 
 class Form extends React.Component {
   constructor(props) {

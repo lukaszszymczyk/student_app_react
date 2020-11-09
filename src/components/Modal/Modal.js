@@ -1,8 +1,8 @@
-import React from 'react';
-import Form from '../Form/Form';
-import axios from 'axios';
-import AppContext from '../../context';
 import { Modal as AntModal } from 'antd';
+import axios from 'axios';
+import React from 'react';
+import AppContext from '../../context';
+import Form from '../Form/Form';
 
 class Modal extends React.Component {
   state = {
