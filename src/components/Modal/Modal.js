@@ -1,11 +1,10 @@
 import React from 'react';
-import styles from './AppModal.module.scss';
 import Form from '../Form/Form';
 import axios from 'axios';
 import AppContext from '../../context';
-import { Modal } from 'antd';
+import { Modal as AntModal } from 'antd';
 
-class AppModal extends React.Component {
+class Modal extends React.Component {
   state = {
     fieldTypes: [],
   };
@@ -23,13 +22,13 @@ class AppModal extends React.Component {
     return (
       <AppContext.Consumer>
         {(context) => (
-          <Modal visible={context.isModalOpen} onCancel={context.closeModal} bodyStyle={{ background: '#f5f6fb' }} footer={null}>
+          <AntModal visible={context.isModalOpen} onCancel={context.closeModal} bodyStyle={{ background: '#f5f6fb' }} footer={null}>
             <Form fieldTypes={fieldTypes} addStudentFn={context.addStudent} />
-          </Modal>
+          </AntModal>
         )}
       </AppContext.Consumer>
     );
   }
 }
 
-export default AppModal;
+export default Modal;

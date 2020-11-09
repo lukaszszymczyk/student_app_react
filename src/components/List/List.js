@@ -2,20 +2,20 @@ import React from 'react';
 import { GoPlus } from 'react-icons/go';
 import AppContext from '../../context';
 import ListItem from './ListItem/ListItem';
-import styles from './ListView.module.scss';
+import styles from './List.module.scss';
 import { Button } from 'antd';
 import 'antd/dist/antd.css';
 
-class ListView extends React.Component {
+class List extends React.Component {
   componentDidMount() {}
 
   render() {
     return (
       <AppContext.Consumer>
         {(context) => (
-          <div className={styles.listView}>
-            <div className={styles.listView__header}>
-              <Button type="primary" className={styles.listView__button} onClick={context.openModal}>
+          <div className={styles.studentList}>
+            <div className={styles.studentList__header}>
+              <Button type="primary" className={styles.studentList__button} onClick={context.openModal}>
                 <GoPlus />
                 <span className={styles.button__label}> Add student</span>
               </Button>
@@ -53,4 +53,4 @@ class ListView extends React.Component {
   }
 }
 
-export default ListView;
+export default List;

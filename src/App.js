@@ -1,63 +1,20 @@
 import React from 'react';
-import styles from './App.module.scss';
-import ListView from './components/ListView/ListView';
-import AppModal from './components/AppModal/AppModal';
-import axios from 'axios';
-import AppContext from './context';
+import NotFoundView from './views/NotFoundView/NotFoundView';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import ListView from './views/ListView/ListView';
 
 class App extends React.Component {
-  state = {
-    students: [],
-    isModalOpen: false,
-  };
-
-  componentDidMount() {
-    this.getStudents();
-  }
-
-  getStudents() {
-    axios.get('http://localhost:4000/students').then((response) => {
-      this.setState({
-        students: response.data,
-        isModalOpen: false,
-      });
-    });
-  }
-
-  openModal = () => {
-    this.setState({
-      isModalOpen: true,
-    });
-  };
-
-  closeModal = () => {
-    this.setState({
-      isModalOpen: false,
-    });
-  };
-
-  addStudent = (student) => {
-    axios.post('http://localhost:4000/students', student).then(() => {
-      this.getStudents();
-    });
-    this.closeModal();
-  };
-
   render() {
-    const { isModalOpen } = this.state;
-    const contextElements = {
-      ...this.state,
-      addStudent: this.addStudent,
-      openModal: this.openModal,
-      closeModal: this.closeModal,
-    };
     return (
-      <AppContext.Provider value={contextElements}>
-        <div className={styles.studentApp}>
-          <ListView />
-          {isModalOpen && <AppModal />}
-        </div>
-      </AppContext.Provider>
+      <BrowserRouter>
+        <>
+          <Switch>
+            <Route exact path="/" component={ListView} />
+            <Route path="/notFound" component={NotFoundView} />
+            <Redirect from="*" to="/notFound" />
+          </Switch>
+        </>
+      </BrowserRouter>
     );
   }
 }
