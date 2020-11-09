@@ -1,7 +1,7 @@
 import { Modal as AntModal } from 'antd';
 import axios from 'axios';
 import React from 'react';
-import AppContext from '../../context';
+import AppContext from 'context';
 import Form from '../Form/Form';
 
 class Modal extends React.Component {

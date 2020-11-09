@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ListItem.module.scss';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import AppContext from '../../../context';
+import AppContext from 'context';
 
 class ListItem extends React.Component {
   render() {

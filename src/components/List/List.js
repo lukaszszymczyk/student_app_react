@@ -2,7 +2,7 @@ import { Button } from 'antd';
 import 'antd/dist/antd.css';
 import React from 'react';
 import { GoPlus } from 'react-icons/go';
-import AppContext from '../../context';
+import AppContext from 'context';
 import styles from './List.module.scss';
 import ListItem from './ListItem/ListItem';
 

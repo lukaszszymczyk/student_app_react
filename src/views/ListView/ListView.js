@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './ListView.module.scss';
-import Modal from '../../components/Modal/Modal';
+import Modal from 'components/Modal/Modal';
 import axios from 'axios';
-import AppContext from '../../context';
-import List from '../../components/List/List';
+import AppContext from 'context';
+import List from 'components/List/List';
 
 class ListView extends React.Component {
   state = {
