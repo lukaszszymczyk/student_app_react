@@ -1,28 +1,29 @@
 import React from 'react';
 import styles from './ListItem.module.scss';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import AppContext from 'context';
+import { connect } from 'react-redux';
+import { deleteStudentAction } from 'actions';
 
 class ListItem extends React.Component {
   render() {
-    const { full_name, semester, field_of_study, faculty, university } = this.props;
+    const { _id, fullName, semester, fieldOfStudy, faculty, university, deleteStudent } = this.props;
     return (
-      <AppContext.Consumer>
-        {(context) => (
-          <tr className={styles.listItem}>
-            <td>{full_name}</td>
-            <td>{semester}</td>
-            <td>{field_of_study}</td>
-            <td>{faculty}</td>
-            <td>{university}</td>
-            <td>
-              <RiDeleteBin6Line></RiDeleteBin6Line>
-            </td>
-          </tr>
-        )}
-      </AppContext.Consumer>
+      <tr className={styles.listItem}>
+        <td>{fullName}</td>
+        <td>{semester}</td>
+        <td>{fieldOfStudy}</td>
+        <td>{faculty}</td>
+        <td>{university}</td>
+        <td>
+          <RiDeleteBin6Line onClick={() => deleteStudent(_id)}></RiDeleteBin6Line>
+        </td>
+      </tr>
     );
   }
 }
 
-export default ListItem;
+const mapDispatchToProps = (dispatch) => ({
+  deleteStudent: (id) => dispatch(deleteStudentAction(id)),
+});
+
+export default connect(null, mapDispatchToProps)(ListItem);

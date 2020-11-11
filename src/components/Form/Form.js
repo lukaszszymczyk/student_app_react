@@ -3,6 +3,8 @@ import 'antd/dist/antd.css';
 import React from 'react';
 import Input from './../Input/Input';
 import styles from './Form.module.scss';
+import { connect } from 'react-redux';
+import { addStudentAction } from 'actions';
 
 class Form extends React.Component {
   constructor(props) {
@@ -30,23 +32,18 @@ class Form extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.addStudentFn(this.state);
+    this.props.addStudent(this.state);
   }
 
   render() {
+    const { types } = this.props;
     return (
       <div className={styles.addForm}>
         <h2 className={styles.addForm__header}>Add student</h2>
         <form onSubmit={this.handleSubmit}>
           <Input tag="input" name="full_name" label="Full name" type="text" onChangeFn={this.handleInputChange} />
           <Input tag="input" name="semester" label="Semester" type="number" onChangeFn={this.handleInputChange} />
-          <Input
-            tag="select"
-            name="field_of_study"
-            label="Field of study"
-            fieldTypes={this.props.fieldTypes}
-            onChangeFn={this.handleInputChange}
-          />
+          <Input tag="select" name="field_of_study" label="Field of study" fieldTypes={types} onChangeFn={this.handleInputChange} />
           <Input tag="input" name="faculty" label="Faculty" type="text" onChangeFn={this.handleInputChange} />
           <Input tag="input" name="university" label="University" type="text" onChangeFn={this.handleInputChange} />
           <Button htmlType="submit" type="primary" className={styles.addForm__button}>
@@ -58,4 +55,13 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+const mapStateToProps = (state) => {
+  const { types } = state;
+  return { types };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  addStudent: (student) => dispatch(addStudentAction(student)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
