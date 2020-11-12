@@ -1,10 +1,10 @@
-import React from 'react';
-import styles from './ListView.module.scss';
-import Modal from 'components/Modal/Modal';
-import List from 'components/List/List';
-import { connect } from 'react-redux';
 import { getStudentsAction } from 'actions';
-import { getTypesAction } from '../../actions';
+import { Spin } from 'antd';
+import List from 'components/List/List';
+import Modal from 'components/Modal/Modal';
+import React from 'react';
+import { connect } from 'react-redux';
+import { getTypesAction } from 'actions';
 
 class ListView extends React.Component {
   componentDidMount() {
@@ -13,19 +13,21 @@ class ListView extends React.Component {
   }
 
   render() {
-    const { students, isModalOpen } = this.props;
+    const { students, isModalOpen, isLoading } = this.props;
     return (
-      <div className={styles.studentApp}>
-        <List students={students} />
-        {isModalOpen && <Modal />}
-      </div>
+      <>
+        <Spin tip="Loading..." spinning={isLoading} size="large">
+          <List students={students} />
+          {isModalOpen && <Modal />}
+        </Spin>
+      </>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  const { students, isModalOpen } = state;
-  return { students, isModalOpen };
+  const { students, isModalOpen, isLoading } = state;
+  return { students, isModalOpen, isLoading };
 };
 
 const mapDispatchToProps = (dispatch) => ({

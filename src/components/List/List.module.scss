@@ -1,13 +1,5 @@
-@import 'src/styles/colors.scss';
-@import 'src/styles/layouts.scss';
-@import 'src/styles/variables.scss';
-
 .studentList {
   padding: 16px 80px;
-
-  @media (max-width: $mobile) {
-    padding: 12px;
-  }
 
   &__header {
     display: flex;
@@ -17,9 +9,6 @@
   &__button {
     display: flex !important;
     align-items: center;
-    @media (max-width: $mobile) {
-      width: 100%;
-    }
   }
 
   button {
@@ -36,9 +25,6 @@
       font-size: 0.9em;
       display: grid;
       grid-template-columns: 2fr 1fr 2fr 1fr 1fr 0.5fr;
-      @media (max-width: $mobile) {
-        display: none;
-      }
     }
   }
 
