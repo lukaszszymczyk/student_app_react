@@ -1,4 +1,4 @@
-.add-form {
+.addForm {
   padding: 20px 40px;
   display: flex;
   flex-direction: column;
@@ -8,12 +8,8 @@
     flex-direction: column;
     margin: 20px 0;
   }
-
-  &__button {
-    width: 100%;
-  }
 }
 
-.input_item {
+.inputItem {
   border: none;
 }
