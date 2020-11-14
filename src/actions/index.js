@@ -1,7 +1,5 @@
-import axios from 'axios';
-
-const API_STUDENT_URL = 'https://us-central1-studentapp-a86fb.cloudfunctions.net/student';
-const API_DICTIONARY_URL = 'https://us-central1-studentapp-a86fb.cloudfunctions.net/dict';
+import StudentAPI from 'api/StudentAPI.js';
+import DictAPI from 'api/DictAPI.js';
 
 export const API_REQUEST = 'API_REQUEST';
 export const API_REQUEST_FAILURE = 'API_REQUEST_FAILURE';
@@ -13,8 +11,7 @@ export const GET_TYPES_SUCCESS = 'GET_TYPES_SUCCESS';
 
 export const getStudentsAction = () => (dispatch) => {
   dispatch({ type: API_REQUEST });
-  return axios
-    .get(API_STUDENT_URL)
+  return StudentAPI.getStudentsRequest()
     .then((response) => {
       dispatch({ type: GET_STUDENTS_SUCCESS, payload: response.data });
     })
@@ -25,8 +22,7 @@ export const getStudentsAction = () => (dispatch) => {
 };
 
 export const addStudentAction = (student) => (dispatch) => {
-  return axios
-    .post(API_STUDENT_URL, student)
+  return StudentAPI.addStudentRequest(student)
     .then(() => {
       dispatch({ type: ADD_STUDENT_SUCCESS, payload: student });
     })
@@ -37,8 +33,7 @@ export const addStudentAction = (student) => (dispatch) => {
 };
 
 export const deleteStudentAction = (id) => (dispatch) => {
-  return axios
-    .delete(`${API_STUDENT_URL}/${id}`)
+  return StudentAPI.deleteStudentRequest()
     .then(() => {
       dispatch({ type: DELETE_STUDENT_SUCCESS, payload: { id } });
     })
@@ -49,13 +44,13 @@ export const deleteStudentAction = (id) => (dispatch) => {
 };
 
 export const getTypesAction = () => (dispatch) => {
-  return axios
-    .get(API_DICTIONARY_URL)
+  return DictAPI.getTypesRequest()
     .then((response) => {
       dispatch({ type: GET_TYPES_SUCCESS, payload: response.data });
     })
     .catch((err) => {
       console.log(err);
+      dispatch({ type: API_REQUEST_FAILURE });
     });
 };
 
