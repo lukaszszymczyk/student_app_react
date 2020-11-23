@@ -50,7 +50,7 @@ const Form = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  const { types } = state;
+  const { types } = state.studentReducer;
   return { types };
 };
 

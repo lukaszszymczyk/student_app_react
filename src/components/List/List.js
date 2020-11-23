@@ -1,11 +1,11 @@
+import { openModalAction } from 'actions';
 import { Button } from 'antd';
 import 'antd/dist/antd.css';
 import React from 'react';
 import { GoPlus } from 'react-icons/go';
+import { connect } from 'react-redux';
 import styles from './List.module.scss';
 import ListItem from './ListItem/ListItem';
-import { connect } from 'react-redux';
-import { openModalAction } from 'actions';
 
 const List = (props) => {
   const { students } = props;

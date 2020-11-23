@@ -26,7 +26,8 @@ class ListView extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  const { students, isModalOpen, isLoading } = state;
+  const { students } = state.studentReducer;
+  const { isModalOpen, isLoading } = state.appReducer;
   return { students, isModalOpen, isLoading };
 };
 
